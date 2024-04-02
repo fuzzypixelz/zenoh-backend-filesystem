@@ -14,8 +14,7 @@
 name: Release
 
 on:
-  schedule:
-    - cron: "0 0 * * 1-5"
+  release:
   workflow_dispatch:
     inputs:
       live-run:
@@ -37,7 +36,7 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     outputs:
-      live-run: ${{ github.event_name == 'schedule' && false || inputs.live-run }}
+      live-run: ${{ github.event_name == 'release' && false || inputs.live-run }}
     steps:
       - run: echo "Setting up inputs..."
 
