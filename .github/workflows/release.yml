@@ -39,6 +39,9 @@ jobs:
       live-run: ${{ github.event_name == 'release' && false || inputs.live-run }}
     steps:
       - run: echo "Setting up inputs..."
+      - run: echo ${{ github.event_name }}
+      - run: echo ${{ inputs.live-run }}
+      - run: echo ${{ github.event_name == 'release' && false || inputs.live-run }}
 
   tag:
     needs: setup
