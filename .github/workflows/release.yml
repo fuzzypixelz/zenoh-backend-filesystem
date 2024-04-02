@@ -36,7 +36,7 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     outputs:
-      live-run: ${{ github.event_name == 'release' && false || inputs.live-run }}
+      live-run: ${{ github.event_name == 'release' && 'false' || inputs.live-run }}
     steps:
       - run: echo "Setting up inputs..."
       - run: echo ${{ github.event_name }}
